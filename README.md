@@ -12,8 +12,6 @@ Cada carpeta conserva el contenido original de su etapa, sin `.git`, dependencia
 instaladas ni binarios pesados. La documentación de operación y de código está en
 [`docs/`](docs/), y el sitio del proyecto en [`docs/index.html`](docs/index.html).
 
-> **Nota de preservación:** se removieron credenciales, claves o tokens detectados en 13 archivo(s) de esta familia. Los ejemplos y plantillas seguras se conservan.
-
 ## Índice de versiones
 
 | Versión | Qué aporta | Archivos |
@@ -35,6 +33,38 @@ pip install -r requirements.txt && uvicorn app:app --reload
 
 La clave real fue removida. Los modelos gratuitos cambian de disponibilidad; el proxy no garantiza cupo.
 
+<!-- ficha -->
+## Ficha de evaluación
+
+**Madurez global: 4.0/5**
+
+| Criterio | Nota | Evidencia |
+|---|---:|---|
+| Madurez | 3/5 | Contrato estable y firmware cliente; comparte con Mega Free Chat la deuda del failover y no tiene tests. |
+| Reproducibilidad | 3/5 | requirements.txt sin pin y credenciales WiFi del firmware por mover a secrets.h; puerto 8001 documentado. |
+| Documentación | 5/5 | README, bitácora con tabla de deudas, datasheet, developer y referencias del protocolo. |
+| Honestidad de límites | 5/5 | Publica la sección 3.6 sobre el failover no corregido y nueve deudas con impacto y corrección. |
+| Valor demostrativo | 4/5 | Demuestra un contrato JSON mínimo para un ESP8266 con 8 KB de RAM y decisiones centralizadas. |
+| Facilidad de despliegue | 4/5 | Uvicorn y .env para el servidor; el cliente requiere placa, red 2.4 GHz y compilación Arduino. |
+
+Proxy mínimo para modelos gratuitos, con contrato JSON pensado para microcontroladores y sin autenticación. Repite la deuda de failover de su proyecto hermano y la documenta.
+
+## Lo que no funcionó
+
+### proxy-openrouter-ia-chinas — Failover sobre un generador perezoso
+
+OpenRouterClient.chat_stream es un generador y el router marcaba éxito al crearlo, no al iterarlo. Un 429 al abrir el stream no disparaba failover ni cooldown, y salía como error interno. Quedó registrado como la deuda funcional principal del proyecto; la corrección pasa por consumir el primer fragmento dentro del try.
+
+### proxy-openrouter-ia-chinas — La placa no veía la red
+
+El ESP8266 no conectaba y el monitor serie mostraba fallo tras veinte segundos. La red disponible era de 5 GHz y el chip solo asocia 2.4 GHz. Se usó el SSID gemelo de 2.4 GHz en la misma subred y el firmware documentó la restricción.
+
+### proxy-openrouter-ia-chinas — JSON fuera del buffer
+
+Con respuestas largas el firmware devolvía «No se pudo parsear JSON»: el DynamicJsonDocument de 8192 bytes no alcanzaba para el texto en UTF-8 más el envelope. Se mantuvo el buffer y se aceptaron respuestas moderadas; quedó pendiente calcular la capacidad o limitar caracteres en el servidor.
+
+<!-- /ficha -->
+
 ## Documentación
 
 - [`docs/datasheet.md`](docs/datasheet.md) — instalación, operación y límites.
@@ -42,9 +72,9 @@ La clave real fue removida. Los modelos gratuitos cambian de disponibilidad; el 
 - [`docs/REFERENCES.md`](docs/REFERENCES.md) — estándares, librerías y fuentes.
 - [`docs/index.html`](docs/index.html) — página del proyecto (GitHub Pages).
 
-## Alcance y honestidad
+## El proyecto en detalle
 
-## Proxy OpenRouter IA Chinas
+### Proxy OpenRouter IA Chinas
 
 **Una puerta de entrada local, diminuta y honesta a modelos de lenguaje gratuitos.**
 
