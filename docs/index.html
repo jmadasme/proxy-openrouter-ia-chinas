@@ -134,6 +134,28 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
   .stat{border-right:0;border-bottom:1px solid var(--line)}
   h1{font-size:42px}
 }
+
+/* ── Contenido heredado del proyecto original, en clave sobria ── */
+.rich{max-width:78ch}
+.rich p{margin:0 0 14px;color:#c3d4da}
+.rich h3{margin:26px 0 10px;font-size:19px;letter-spacing:-.02em}
+.rich h4{margin:22px 0 8px;font-size:15px;letter-spacing:-.01em}
+.rich ul,.rich ol{margin:0 0 16px;padding-left:22px;color:#c3d4da}
+.rich li{margin:0 0 6px}
+.rich figure{margin:22px 0;border:1px solid var(--line);border-radius:16px;padding:10px;background:rgba(11,34,43,.5)}
+.rich figure img{width:100%;display:block;border-radius:10px}
+.rich figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:9px;line-height:1.5}
+.rich .table-wrap{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:12px}
+.rich table{border-collapse:collapse;width:100%;font-size:13.5px}
+.rich th,.rich td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.rich th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:rgba(11,34,43,.6)}
+.rich tr:last-child td{border-bottom:0}
+.rich pre{margin:18px 0;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#04141a;overflow-x:auto;font-family:var(--mono);font-size:12px;line-height:1.6;color:#cfe3e8}
+.rich code{font-family:var(--mono);font-size:.92em}
+.rich .note{margin:18px 0;padding:13px 16px;border-left:2px solid var(--accent);background:rgba(42,157,143,.07);color:#c3d4da;font-size:14px}
+.rich .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.rich .card-grid .card{margin:0}
+
 </style>
 <link rel="stylesheet" href="assets/community.css?v=1">
 </head>
@@ -182,35 +204,45 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
   <a href="https://github.com/jmadasme/proxy-openrouter-ia-chinas/tree/main/versions/proxy-openrouter-ia-chinas" target="_blank" rel="noopener">Ver carpeta <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </article></div>
 </div></section>
-
-<section class="section tight"><div class="wrap">
-  <div class="section-head reveal"><div class="kicker">03 — Cómo se usa</div><h2>De la carpeta a la práctica.</h2></div>
-  <div class="timeline"><div class="step reveal"><div class="step-n">01</div><h4>Configurá la clave</h4><p>OPENROUTER_API_KEY en .env.</p></div><div class="step reveal"><div class="step-n">02</div><h4>Iniciá el proxy</h4><p>FastAPI en el puerto configurado.</p></div><div class="step reveal"><div class="step-n">03</div><h4>Consultá el endpoint</h4><p>GET /api/query con el prompt.</p></div><div class="step reveal"><div class="step-n">04</div><h4>Leé el JSON</h4><p>Incluye modelo usado y errores.</p></div></div>
-</div></section>
-
-<section class="section tight"><div class="wrap">
-  <div class="section-head reveal"><div class="kicker">04 — Decisiones</div><h2>Lo que lo hace distinto</h2></div>
-  <div class="features"><div class="feature reveal"><h4>Contrato JSON</h4><p>Fácil de consumir desde cualquier lenguaje.</p></div><div class="feature reveal"><h4>Descubrimiento</h4><p>Modelos gratuitos al arrancar.</p></div><div class="feature reveal"><h4>Prioridad</h4><p>Proveedores chinos primero, configurable.</p></div><div class="feature reveal"><h4>Failover</h4><p>Si un modelo falla, se intenta otro.</p></div><div class="feature reveal"><h4>Local</h4><p>La clave no sale del equipo.</p></div><div class="feature reveal"><h4>Sin UI</h4><p>Es infraestructura, no un chat.</p></div></div>
-</div></section>
-
-<section class="section tight" id="stack"><div class="wrap">
-  <div class="section-head reveal"><div class="kicker">05 — Stack y arranque</div><h2>Con qué está construido</h2></div>
-  <div class="stack-grid">
-    <div class="reveal"><div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenRouter</span><span class="chip">HTTP</span><span class="chip">JSON</span></div><div class="note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>La clave real fue removida. Los modelos gratuitos cambian de disponibilidad; el proxy no garantiza cupo. Se removieron secretos en 13 archivo(s) de esta familia.</span></div></div>
-    <div class="terminal reveal"><div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><pre>git clone https://github.com/jmadasme/proxy-openrouter-ia-chinas.git
-cd proxy-openrouter-ia-chinas/versions/proxy-openrouter-ia-chinas
-cp .env.example .env
-pip install -r requirements.txt &amp;&amp; uvicorn app:app --reload</pre></div>
-  </div>
-</div></section>
-
-<section class="section tight" id="docs"><div class="wrap">
-  <div class="section-head reveal"><div class="kicker">06 — Documentación</div><h2>Para usar y para entender.</h2><p class="section-sub">Cada documento está en el repositorio, versionado junto al código.</p></div>
-  <div class="docs"><a class="doc reveal" href="https://github.com/jmadasme/proxy-openrouter-ia-chinas/blob/main/docs/datasheet.md" target="_blank" rel="noopener"><span class="tag">DATASHEET</span><h4>Manual de operación</h4><p>Instalación, configuración, uso y diagnóstico.</p></a><a class="doc reveal" href="https://github.com/jmadasme/proxy-openrouter-ia-chinas/blob/main/docs/developer.md" target="_blank" rel="noopener"><span class="tag">DEVELOPER</span><h4>Guía de código</h4><p>Arquitectura, módulos, contratos y extensión.</p></a><a class="doc reveal" href="https://github.com/jmadasme/proxy-openrouter-ia-chinas/blob/main/docs/REFERENCES.md" target="_blank" rel="noopener"><span class="tag">REFERENCES</span><h4>Referencias</h4><p>Estándares, librerías y fuentes oficiales.</p></a><a class="doc reveal" href="https://github.com/jmadasme/proxy-openrouter-ia-chinas/blob/main/docs/BITACORA.md" target="_blank" rel="noopener"><span class="tag">BITÁCORA</span><h4>Decisiones y pruebas</h4><p>Qué se intentó, qué falló y por qué se cambió.</p></a></div>
-</div></section>
-
-<section class="section tight"><div class="wrap"><div class="note reveal"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span><strong>Preservación:</strong> las versiones se copiaron sin <code>.git</code>, <code>node_modules</code>, entornos virtuales, compilados ni bases de datos. Los tokens y claves detectados fueron redactados; las plantillas <code>.example</code> se conservan. Las limitaciones conocidas están en la documentación, no escondidas.</span></div></div></section>
-
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">01 — La idea</div><h2>La IA no cabe en un ESP8266. Pero puede pedirla.</h2><p class="section-sub">El micro no necesita entender de tokens, modelos ni claves: solo necesita una URL que le devuelva texto útil.</p></div><div class="rich reveal"><div class="card-grid">
+<div class="card"><h3>El problema</h3><div><div></div><p>Los modelos interesantes viven detrás de APIs con JSON, cabeceras y claves. Un ESP8266 tiene poca RAM y ninguna ganas de implementing TLS con un cliente HTTP completo. Además, los modelos gratuitos cambian de disponibilidad y devuelven 429 sin avisar.</p></div></div>
+<div class="card"><h3>La solución</h3><div><div></div><p>Un proxy FastAPI mantiene el pool de modelos, elige primero los modelos chinos disponibles, rota ante errores y devuelve una respuesta compacta. El firmware solo llama a /api/query?q=... y muestra el texto.</p></div></div>
+</div></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="kicker">02 — El recorrido</div><h2>Cómo funciona, paso a paso</h2><p class="section-sub">Del pulsador al modelo, sin que el micro se entere de la complejidad.</p></div><div class="rich reveal"><div class="timeline">
+<div class="step"><div class="step-n">01</div><h4>El micro pregunta</h4><div><p>El ESP8266 envía el texto a GET /api/query?q=... por HTTP. Sin SDK, sin claves y sin JSON elaborado.</p></div></div>
+<div class="step"><div class="step-n">02</div><h4>El proxy elige</h4><div><p>FastAPI consulta su pool de modelos $0, prioriza los modelos chinos y descarta los que están en cooldown.</p></div></div>
+<div class="step"><div class="step-n">03</div><h4>Si falla, rota</h4><div><p>Un 429 o un timeout no cortan la experiencia: el proxy pasa al siguiente candidato y registra el incidente.</p></div></div>
+<div class="step"><div class="step-n">04</div><h4>La respuesta vuelve</h4><div><p>El micro recibe un cuerpo corto y legible, listo para mostrar en pantalla o leer por serial.</p></div></div>
+</div></div></div></section>
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">03 — Bajo el capó</div><h2>Un actor, muchos proveedores</h2><p class="section-sub">El proxy concentra credenciales, selección y resiliencia; el firmware queda deliberadamente tonto.</p></div><div class="rich reveal"><figure><img src="assets/rich/architecture.svg" alt="Arquitectura del proxy OpenRouter entre el ESP8266 y los modelos" loading="lazy"><figcaption>El ESP8266 solo habla con el proxy; el proxy habla con OpenRouter.</figcaption></figure>
+<div class="card-grid">
+<div class="card"><h3>Selección con criterio</h3><div><p>El pool prioriza modelos chinos y gratuitos, pero mantiene alternativas para no depender de un solo proveedor.</p></div></div>
+<div class="card"><h3>Cooldown real</h3><div><p>Cuando un modelo devuelve 429, se marca y se saca de rotación temporalmente. El siguiente request no vuelve a tropezar.</p></div></div>
+<div class="card"><h3>Superficie mínima</h3><div><p>El micro nunca ve la API key ni el catálogo completo. Solo ve una URL y un texto.</p></div></div>
+</div></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="kicker">04 — Lo que lo hace distinto</div><h2>Decisiones de ingeniería</h2><p class="section-sub">Cada decisión está pensada para que el cliente más débil sea el que menos complejidad cargue.</p></div><div class="rich reveal"><div class="features">
+<div class="feature"><h3>Failover en cadena</h3><div><p>Si el primer modelo falla, el proxy prueba el siguiente sin cambiar el contrato del cliente.</p></div></div>
+<div class="feature"><h3>Cooldown de 429</h3><div><p>Los modelos saturados descansan y vuelven solos cuando termina la ventana.</p></div></div>
+<div class="feature"><h3>Clave fuera del micro</h3><div><p>La credencial vive en el servidor. El ESP8266 no guarda secretos.</p></div></div>
+<div class="feature"><h3>Contrato de un GET</h3><div><p>Diseñado para clientes con poca RAM: sin OAuth, sin SDK y sin payloads grandes.</p></div></div>
+<div class="feature"><h3>Pool configurable</h3><div><p>Los modelos y prioridades se editan en configuración, no en el firmware.</p></div></div>
+<div class="feature"><h3>Respuesta compacta</h3><div><p>El texto se devuelve listo para pantalla o para el puerto serial.</p></div></div>
+</div></div></div></section>
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">05 — Diagramas</div><h2>El sistema, en dibujos</h2><p class="section-sub">Los diagramas se mantienen en el repositorio y se actualizan con el código.</p></div><div class="rich reveal"><figure><img src="assets/rich/deployment.svg" alt="OpenRouter Proxy — deployment" loading="lazy"><figcaption>Deployment</figcaption></figure>
+<figure><img src="assets/rich/request-flow.svg" alt="OpenRouter Proxy — request flow" loading="lazy"><figcaption>Request Flow</figcaption></figure></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head reveal"><div class="kicker">06 — Stack y arranque</div><h2>Con qué está construido</h2><p class="section-sub">FastAPI y httpx del lado servidor; ArduinoJson y ESP8266WiFi del lado micro. El firmware es un cliente HTTP deliberadamente simple.</p></div><div class="rich reveal"><p>Python 3.9+ FastAPI httpx OpenRouter ESP8266 ArduinoJson PlatformIO La clave de OpenRouter se configura por entorno. No se versiona.</p>
+<p>proxy-openrouter · arranque</p>
+<pre><span>$</span> python3 -m venv .venv
+<span>$</span> source .venv/bin/activate
+<span>$</span> pip install -r requirements.txt
+<span>$</span> export OPENROUTER_API_KEY=[REDACTED]
+<span>$</span> uvicorn app:app --host 0.0.0.0 --port 8001</pre></div></div></section>
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">07 — Documentación</div><h2>Todo está escrito</h2><p class="section-sub">Cada decisión, cada límite y cada comando están documentados en el repositorio. Sin folletos: lo que funciona se muestra, lo que no, también.</p></div><div class="rich reveal"><div class="card-grid">
+<a class="card" href=""><h3>La guía completa</h3><p>Instalación, configuración, firmware, contrato HTTP y límites.</p></a>
+<a class="card" href=""><h3>Manual de operación</h3><p>Puesta en marcha, variables, endpoints, códigos de error y mantenimiento.</p></a>
+<a class="card" href=""><h3>Guía de código</h3><p>Módulos, pool de modelos, cooldown, failover y cómo extenderlo.</p></a>
+<a class="card" href=""><h3>Referencias</h3><p>OpenRouter, FastAPI, ArduinoJson y documentación del ESP8266.</p></a>
+</div></div></div></section>
 <section class="cta"><div class="wrap"><div class="cta-box reveal">
   <div class="kicker">Siguiente paso</div><h2>¿Te animás?</h2>
   <p>Usá esta familia como base para proxy openrouter ia chinas. Está documentada para que puedas entenderla, ejecutarla y continuarla sin adivinar.</p>
