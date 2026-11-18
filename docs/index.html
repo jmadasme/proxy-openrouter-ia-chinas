@@ -191,12 +191,14 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
 
 </style>
 <link rel="stylesheet" href="assets/community.css?v=1">
+<link href="rec/player.css?v=1" rel="stylesheet"/>
 </head>
 <body>
 <header class="nav"><div class="wrap nav-in">
   <a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></svg></span><span>jmadasme<span style="color:var(--accent)">.</span>portfolio</span></a>
   <nav class="nav-links">
-    <a href="#proyecto">Proyecto</a><a href="#versiones">Versiones</a><a href="#stack">Stack</a><a href="#docs">Docs</a><a href="#comunidad">Comunidad</a>
+    <a href="#proyecto">Proyecto</a><a href="#versiones">Versiones</a><a href="#stack">Stack</a><a href="#video">Video</a>
+<a href="#docs">Docs</a><a href="#comunidad">Comunidad</a>
     <a class="btn btn-ghost" style="padding:9px 15px" href="/software/">← Software</a>
   </nav>
 </div></header>
@@ -221,7 +223,46 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
 
 <section class="stats"><div class="wrap stats-grid"><div class="stat"><div class="stat-num">1</div><div class="stat-label">versión</div></div><div class="stat"><div class="stat-num">$0</div><div class="stat-label">modelos</div></div><div class="stat"><div class="stat-num">JSON</div><div class="stat-label">salida</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">endpoint</div></div></div></section>
 
-<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El concepto</div><h2>Qué es y por qué existe</h2></div><div class="rich reveal"><p>Proxy OpenRouter IA Chinas es un servicio HTTP local que centraliza el acceso a modelos gratuitos de OpenRouter para otros programas. Descubre el catálogo al arrancar, filtra los modelos de precio cero, prioriza proveedores chinos y expone un único GET /api/query que devuelve JSON con cuatro campos: ok, modelo, texto y error.</p><p>Existe porque integrar OpenRouter en varios proyectos obliga a repetir descubrimiento, orden de proveedores y manejo de errores en cada cliente. Acá esas decisiones viven en un solo proceso y se cambian sin tocar a los consumidores. El cliente de referencia es un ESP8266 con ArduinoJson y 8 KB de buffer, lo que fija el contrato: sin streaming, campos planos y respuestas acotadas. No tiene autenticación y está pensado para localhost.</p></div></div></section><section class="section" id="versiones"><div class="wrap">
+<section class="section tight"><div class="wrap"><div class="section-head reveal"><div class="kicker">El concepto</div><h2>Qué es y por qué existe</h2></div><div class="rich reveal"><p>Proxy OpenRouter IA Chinas es un servicio HTTP local que centraliza el acceso a modelos gratuitos de OpenRouter para otros programas. Descubre el catálogo al arrancar, filtra los modelos de precio cero, prioriza proveedores chinos y expone un único GET /api/query que devuelve JSON con cuatro campos: ok, modelo, texto y error.</p><p>Existe porque integrar OpenRouter en varios proyectos obliga a repetir descubrimiento, orden de proveedores y manejo de errores en cada cliente. Acá esas decisiones viven en un solo proceso y se cambian sin tocar a los consumidores. El cliente de referencia es un ESP8266 con ArduinoJson y 8 KB de buffer, lo que fija el contrato: sin streaming, campos planos y respuestas acotadas. No tiene autenticación y está pensado para localhost.</p></div></div></section>
+<section class="section tight rec-section" id="video" style="--accent:#2E7DFF;--accent2:#14F195">
+<div class="wrap">
+<div class="rec-kicker">REC · VIDEO · 2:46</div>
+<h2 class="rec-h2">Un proxy de IA gratuita para microcontroladores</h2>
+<p class="rec-lead">Proxy FastAPI que consulta modelos gratuitos de OpenRouter, prioriza proveedores chinos y devuelve una respuesta JSON simple para un ESP8266 o cualquier script.</p>
+<div class="rec-banner">
+<span class="rec-banner-icon">📋</span>
+<strong>Puedes copiar y pegar los comandos del video desde el video !!!</strong>
+<span>Pausá, seleccioná el texto de la terminal y copiá.</span>
+</div>
+<div class="rec-shell">
+<div class="rec-bar"><i></i><i></i><i></i><span class="rec-title">Un proxy de IA gratuita para microcontroladores · asciinema</span><span class="rec-rec"><b></b>REC</span></div>
+<div class="rec-screen-wrap">
+<div class="rec-screen" id="rec-screen"></div>
+<div class="rec-poster" id="rec-poster">
+<div class="rec-kicker">ASCIINEMA · 2:46</div>
+<h3>Un proxy de IA gratuita para microcontroladores</h3>
+<p>Proxy FastAPI que consulta modelos gratuitos de OpenRouter, prioriza proveedores chinos y devuelve una respuesta JSON simple para un ESP8266 o cualquier script.</p>
+<div class="rec-poster-meta">proxy-openrouter-ia-chinas · código real</div>
+<button class="rec-btn rec-primary" id="rec-start" type="button">▶ Reproducir</button>
+</div>
+</div>
+<div class="rec-controls">
+<button class="rec-btn rec-primary" id="rec-play" type="button">▶ Reproducir</button>
+<button class="rec-btn" id="rec-restart" type="button">↺ Reiniciar</button>
+<input class="rec-progress" id="rec-range" type="range" min="0" max="1000" value="0" aria-label="Progreso"/>
+<span class="rec-time" id="rec-time">0:00 / 2:46</span>
+<select class="rec-speed" id="rec-speed" aria-label="Velocidad"><option value="1">1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+<button class="rec-btn" id="rec-full" type="button" title="Pantalla completa">⛶</button>
+<button class="rec-btn" id="rec-copy" type="button">⧉ Copiar comandos</button>
+<a class="rec-download" href="rec/proxy-openrouter-ia-chinas.cast" download>descargar .cast</a>
+</div>
+</div>
+<p class="rec-note">Los fragmentos son del proxy y del firmware reales; la API key se lee de .env y no se incluye en el guion.</p>
+<div class="rec-chapters"><span class="rec-chip"><b>0:06</b> EL PROBLEMA</span><span class="rec-chip"><b>0:20</b> ARQUITECTURA</span><span class="rec-chip"><b>0:33</b> ENDPOINT</span><span class="rec-chip"><b>0:46</b> POOL</span><span class="rec-chip"><b>1:02</b> PRIORIDAD</span><span class="rec-chip"><b>1:15</b> ESTADO</span><span class="rec-chip"><b>1:28</b> FAILOVER</span><span class="rec-chip"><b>1:45</b> CLIENTE</span><span class="rec-chip"><b>1:57</b> FIRMWARE</span><span class="rec-chip"><b>2:10</b> FIRMWARE</span><span class="rec-chip"><b>2:24</b> CÓMO EJECUTARLO</span></div>
+</div>
+</section>
+
+<section class="section" id="versiones"><div class="wrap">
   <div class="section-head reveal"><div class="kicker">02 — Versiones</div><h2>La historia, completa.</h2><p class="section-sub">Cada carpeta conserva una etapa del proyecto. No se borraron las anteriores: se pusieron en contexto.</p></div>
   <div class="versions"><article class="version reveal">
   <div class="version-top"><h3>proxy-openrouter-ia-chinas</h3><span class="count">26 archivos</span></div>
@@ -280,5 +321,7 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.04em;margin:
 <script>window.PORTFOLIO_COMMUNITY={account:"jmadasme",repo:"proxy-openrouter-ia-chinas",coinNamespace:"jmadasme-proxy-openrouter-ia-chinas-coins-v1",faqs:[{"q": "¿Es igual que Mega Free Chat?", "a": "Comparten idea, pero este expone JSON para programas y el otro una interfaz de chat."}, {"q": "¿Qué endpoint usa?", "a": "GET /api/query, documentado en el README."}, {"q": "¿Necesito la clave?", "a": "Sí. Sin OPENROUTER_API_KEY no hay acceso a modelos."}, {"q": "¿Por qué prioriza IA china?", "a": "Es una preferencia del autor por costo/latencia; el orden se puede cambiar."}, {"q": "¿Tiene autenticación?", "a": "No. Está pensado para localhost."}]};</script>
 <script src="assets/community.js?v=2" defer></script>
 
+<script defer src="rec/proxy-openrouter-ia-chinas.cast.js?v=1"></script>
+<script defer src="rec/player.js?v=1"></script>
 </body>
 </html>
